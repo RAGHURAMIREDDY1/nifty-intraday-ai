@@ -13,39 +13,15 @@ Agent 4 — Signal Generator  → Generates BUY/SELL signals with Entry, Target 
 ```
 ## 🏗️ Architecture
 
-\```
-┌─────────────────────────────────────────────────┐
-│              USER INPUT                          │
-│         "Analyse Nifty Market"                  │
-└──────────────────┬──────────────────────────────┘
-                   ↓
-┌──────────────────────────────────────────────────┐
-│  AGENT 1 — Stock Scanner                         │
-│  Scans all 50 Nifty stocks                       │
-│  Scores by price movement + volume spike         │
-│  Output: Top 5 most active stocks                │
-└──────────────────┬───────────────────────────────┘
-                   ↓
-┌──────────────────────────────────────────────────┐
-│  AGENT 2 — Strategy Expert                       │
-│  RSI · VWAP · EMA 20/50 · Bollinger Bands        │
-│  MACD · Opening Range Breakout · Support/Resist  │
-│  Output: Confluence Score (0-100) per stock      │
-└──────────────────┬───────────────────────────────┘
-                   ↓
-┌──────────────────────────────────────────────────┐
-│  AGENT 3 — Scenario Tester (Gemini LLM)          │
-│  Tests Bull / Bear / Sideways scenarios          │
-│  Assigns opportunity score & risk factors        │
-└──────────────────┬───────────────────────────────┘
-                   ↓
-┌──────────────────────────────────────────────────┐
-│  AGENT 4 — Signal Generator (Gemini LLM)         │
-│  BUY / SELL / AVOID signals                      │
-│  Entry Price · Target · Stop Loss                │
-│  🏆 TOP 2 highest confidence picks               │
-└──────────────────────────────────────────────────┘
-\```
+| Step | Agent | Role | Output |
+|------|-------|------|--------|
+| 1️⃣ | **Stock Scanner** | Scans all 50 Nifty stocks, scores by price movement + volume spike | Top 5 active stocks |
+| 2️⃣ | **Strategy Expert** | Calculates RSI, VWAP, EMA 20/50, Bollinger Bands, MACD, ORB, Support/Resistance | Confluence Score (0–100) |
+| 3️⃣ | **Scenario Tester** | Uses Gemini LLM to test Bull / Bear / Sideways scenarios | Opportunity score + risk |
+| 4️⃣ | **Signal Generator** | Generates BUY/SELL/AVOID with Entry, Target, Stop Loss | 🏆 Top 2 confidence picks |
+
+> **Flow:** User → Agent 1 → Agent 2 → Agent 3 → Agent 4 → Final Signals
+
 ## 🛠️ Tech Stack
 
 - **LangGraph** — Multi-agent pipeline orchestration
