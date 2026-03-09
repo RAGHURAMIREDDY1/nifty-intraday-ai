@@ -22,7 +22,7 @@ Agent 4 — Signal Generator  → Generates BUY/SELL signals with Entry, Target 
 
 ## 🚀 Live Demo
 
-[View on Hugging Face Spaces](your-huggingface-link-here)
+[View on Hugging Face Spaces](https://huggingface.co/spaces/Raghu7207/Intradayanalyser)
 
 ## ⚙️ Setup
 
