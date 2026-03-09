@@ -1,0 +1,20 @@
+# Never commit API keys or secrets
+.env
+*.env
+secrets.txt
+api_key.txt
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# OS files
+.DS_Store
+Thumbs.db
